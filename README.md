@@ -1,41 +1,29 @@
-# easy\_seq2seq
-
-![](https://img.shields.io/badge/status-unmaintained-red.svg) 
-
-* Go to [*practical_seq2seq*](https://github.com/suriyadeepan/practical_seq2seq)
-
-An implementation of Seq2Seq that actually works. I want to make it easy for people to train their own seq2seq model with any corpus. I am also adding the parameters of my trained model for people to just use it without training. If you have a model that works share your model params here, as external link or do a pull request. I have used Cornell Movie Dialog Corpus to train my model. A link to preprocessed data and scripts for preprocessing can be found in this repo.
-
-*Have Fun!*
-
-## Update 1.1.2017
 
 
-I have created another repository - [practical_seq2seq](https://github.com/suriyadeepan/practical_seq2seq) to experiment with the seq2seq model. The new model trained on Twitter chat log and Cornell Movie Dialog corpus performs well. I wrote an article - [Practical seq2seq](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq/), explaining the code.
+## Data Preparing
 
-Happy New Year, **2017**
+* Download raw data from Cornell Movie Corpus:
+https://people.mpi-sws.org/~cristian/data/cornell_movie_dialogs_corpus.zip
 
-
-## Setup
-
-
-* Create temporary working directory prior to training
-
+* Unzip the file, and put it in prepare_data
 ```bash
+cd prepare_data
+python prepare_data.py
+```
+
+* Make a new directory named working_dir and data
+```bash
+cd cornell-movie-chatbot
 mkdir working_dir
+mkdir data
 ```
 
-* Download test/train data from Cornell Movie Dialog Corpus
-
-```bash
-cd data/
-bash pull_data.sh
-```
+* put the output of prepare_data.py in data
 
 ## Training
 
 ```bash
-# edit seq2seq.ini file to set 
+# edit seq2seq.ini file to set
 #		mode = train
 python execute.py
 # or use custom ini file
@@ -45,7 +33,7 @@ python execute.py
 ## Testing
 
 ```bash
-# edit seq2seq.ini file to set 
+# edit seq2seq.ini file to set
 #		mode = test
 python execute.py
 ```
